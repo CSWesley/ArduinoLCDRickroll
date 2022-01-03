@@ -1,17 +1,4 @@
-//www.elegoo.com
-//2016.12.9
-
 /*
-  LiquidCrystal Library - Hello World
-
- Demonstrates the use a 16x2 LCD display.  The LiquidCrystal
- library works with all LCD displays that are compatible with the
- Hitachi HD44780 driver. There are many of them out there, and you
- can usually tell them by the 16-pin interface.
-
- This sketch prints "Hello World!" to the LCD
- and shows the time.
-
   The circuit:
  * LCD RS pin to digital pin 7
  * LCD Enable pin to digital pin 8
@@ -25,19 +12,7 @@
  * 10K resistor:
  * ends to +5V and ground
  * wiper to LCD VO pin (pin 3)
-
- Library originally added 18 Apr 2008
- by David A. Mellis
- library modified 5 Jul 2009
- by Limor Fried (http://www.ladyada.net)
- example added 9 Jul 2009
- by Tom Igoe
- modified 22 Nov 2010
- by Tom Igoe
-
- This example code is in the public domain.
-
- http://www.arduino.cc/en/Tutorial/LiquidCrystal
+ 
  */
 
 // include the library code:
@@ -49,9 +24,10 @@ LiquidCrystal lcd(7, 8, 9, 10, 11, 12);
 void setup() {
   // set up the LCD's number of columns and rows:
   lcd.begin(16, 2);
-  // Print a message to the LCD.
-
-  // During intro say: Never gonna give you up by rick astley (or something)
+  
+  // Note when using the setCursor() method, the first parameter is the column number and the second parameter is the row number.
+  
+  // Also, counting starts at 0, so top left is (0, 1). Almost as confusing as the Java Swing setLocation() method because of its reversed/flipped cartesian system.
 
   lcd.print("Never Gonna Give");
   lcd.setCursor(0, 1);
@@ -59,13 +35,12 @@ void setup() {
   delay(4000);
   lcd.clear();
   lcd.setCursor(0, 0);
-  lcd.print("By Rick Astley");
+  lcd.print("Credits to Rick Astley");
 
-  // Delay amount of seconds from the begining of the song (intro) to when the lyrics start.
-  
-  delay(5000); // Putting 5 for now.
+  // Delay amount of seconds from the begining of the song (intro) to when the lyrics start. (Not 5 seconds as displayed here)
+  delay(5000); 
 
-  // Starting here:
+  // Starting song here:
 
   lcd.clear();
   lcd.print("We're no");
@@ -219,14 +194,9 @@ void setup() {
   lcd.clear();
   lcd.print("you.");
   delay(5000);
-
-  // Say thank you at the end
-  lcd.clear();
-  lcd.setCursor(0, 0);
-  lcd.print("Thank you for");
-  lcd.setCursor(0, 1);
-  lcd.print("your time!");
-  delay(7000);
+  
+  // Clear at end of song.
+  
   lcd.clear();
 
 }
